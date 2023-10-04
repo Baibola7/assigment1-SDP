@@ -1,59 +1,20 @@
-class MercedesDealership:
-    _instance = None
-    
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(MercedesDealership, cls).__new__(cls)
-            cls._instance.initialize_dealership()
-        return cls._instance
-    
-    def initialize_dealership(self):
-        # Initialization code for the dealership
-        self.inventory = {}
-        self.strategy = None  # The pricing strategy will be set using the Strategy pattern
-    
-    def set_pricing_strategy(self, pricing_strategy):
-        self.strategy = pricing_strategy
-    
-    def add_car_to_inventory(self, car_model, price):
-        self.inventory[car_model] = price
-    
-    def calculate_price(self, car_model):
-        if self.strategy:
-            return self.strategy.calculate_price(self.inventory[car_model])
-        return None
+public class MercedesDealership {
+    private static MercedesDealership instance;
 
+    private MercedesDealership() {
+        // Private constructor to prevent instantiation
+    }
 
-class PricingStrategy:
-    def calculate_price(self, base_price):
-        pass
+    public static MercedesDealership getInstance() {
+        if (instance == null) {
+            instance = new MercedesDealership();
+        }
+        return instance;
+    }
 
+    public void sellCar(String model) {
+        // Logic for selling a Mercedes car
+        System.out.println("Sold a " + model + " Mercedes.");
+    }
+}
 
-class StandardPricingStrategy(PricingStrategy):
-    def calculate_price(self, base_price):
-        return base_price
-
-
-class DiscountPricingStrategy(PricingStrategy):
-    def calculate_price(self, base_price):
-        return base_price * 0.9  # Apply a 10% discount
-
-
-# Usage example
-if __name__ == "__main__":
-    dealership = MercedesDealership()
-    
-    # Set the pricing strategy
-    standard_strategy = StandardPricingStrategy()
-    dealership.set_pricing_strategy(standard_strategy)
-    
-    # Add cars to inventory
-    dealership.add_car_to_inventory("C-Class", 40000)
-    dealership.add_car_to_inventory("E-Class", 50000)
-    
-    # Calculate prices using the selected strategy
-    c_class_price = dealership.calculate_price("C-Class")
-    e_class_price = dealership.calculate_price("E-Class")
-    
-    print(f"Price of C-Class: ${c_class_price}")
-    print(f"Price of E-Class: ${e_class_price}")
