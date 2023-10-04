@@ -1,0 +1,13 @@
+public class DiscountPricingStrategy implements PricingStrategy {
+    private double discountPercentage;
+
+    public DiscountPricingStrategy(double discountPercentage) {
+        this.discountPercentage = discountPercentage;
+    }
+
+    @Override
+    public double calculatePrice(double basePrice) {
+        // Implement the discounted pricing strategy logic
+        return basePrice * (1 - discountPercentage / 100.0);
+    }
+}
