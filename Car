@@ -1,0 +1,23 @@
+public class Car {
+    private String model;
+    private double basePrice;
+    private PricingStrategy pricingStrategy;
+
+    public Car(String model, double basePrice) {
+        this.model = model;
+        this.basePrice = basePrice;
+    }
+
+    public void setPricingStrategy(PricingStrategy pricingStrategy) {
+        this.pricingStrategy = pricingStrategy;
+    }
+
+    public double calculatePrice() {
+        if (pricingStrategy == null) {
+            throw new UnsupportedOperationException("Pricing strategy not set.");
+        }
+        return pricingStrategy.calculatePrice(basePrice);
+    }
+
+    // Other methods related to car inventory
+}
