@@ -1,13 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        // Singleton pattern - Creating a Mercedes dealership instance
+        * Singleton pattern - Creating a Mercedes dealership instance
         MercedesDealership dealership = MercedesDealership.getInstance();
 
-        // Strategy pattern - Choosing a pricing strategy
+        * Strategy pattern - Choosing a pricing strategy
         PricingStrategy standardPricing = new StandardPricingStrategy();
         PricingStrategy discountPricing = new DiscountPricingStrategy(10); // 10% discount
 
-        // Selling cars using different pricing strategies
+        * Selling cars using different pricing strategies
         double basePrice = 50000.0;
         double priceWithStandardPricing = standardPricing.calculatePrice(basePrice);
         double priceWithDiscountPricing = discountPricing.calculatePrice(basePrice);
