@@ -2,7 +2,7 @@ public class MercedesDealership {
     private static MercedesDealership instance;
 
     private MercedesDealership() {
-        // Private constructor to prevent instantiation
+        * Private constructor to prevent instantiation
     }
 
     public static MercedesDealership getInstance() {
@@ -13,8 +13,8 @@ public class MercedesDealership {
     }
 
     public void sellCar(String model) {
-        // Logic for selling a Mercedes car
-        System.out.println("Sold a " + model + " Mercedes.");
+        * Logic for selling a Mercedes car
+        System.out.println("Sold a " + model + " Mercedes. ");
     }
 }
 
