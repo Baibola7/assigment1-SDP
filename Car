@@ -14,10 +14,8 @@ public class Car {
 
     public double calculatePrice() {
         if (pricingStrategy == null) {
-            throw new UnsupportedOperationException("Pricing strategy not set.");
+            throw new UnsupportedOperationException("Pricing strategy not set. ");
         }
         return pricingStrategy.calculatePrice(basePrice);
     }
-
-    // Other methods related to car inventory
 }
